@@ -33,7 +33,8 @@ def check_snkrs_web():
     browser = webdriver.Chrome(chrome_driver)
     browser.get(snkrs_launch_page)
     try:
-        in_stock = browser.find_elements(by = By.XPATH, value = "//a[contains(@href, 'react-element-87')]")
+        # TODO need to get the correct size to add to cart
+        in_stock = browser.find_elements(by = By.XPATH, value = "//a[contains(@href, 'react-element-87-pure-platinum-photo-blue')]")
     except Exception as e:
         print(e)
     else:
@@ -44,10 +45,12 @@ def check_snkrs_web():
 def check_snkrs_back():
     page = request.urlopen(snkrs_launch_page)
     soup = BeautifulSoup(page, 'html.parser')
-    for tag in soup.find_all("a", href = re.compile("react-element-87-.*-photo-blue")):
-        print(tag.get("href"))
+    for base in soup.find_all("base"):
+        print(base)
+
+    for tag in soup.find_all("a", href = re.compile("react-element-87-pure-platinum-photo-blue")):
+        #tmp_pg = request.urlopen(tag.get("href"))  #TODO: need to figure out how to goto the relative url like this
         print(tag)
-        #TODO: need to figure out how to goto the relative url like this
 
 
 
@@ -57,8 +60,8 @@ def check_snkrs_back():
             
 def main():
     err = 0
-    #check_snkrs()
-    check_snkrs_back()
+    check_snkrs_web()
+    #check_snkrs_back()
     return err
 
 
