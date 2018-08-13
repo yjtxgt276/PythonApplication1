@@ -1,4 +1,4 @@
-
+# OK now this is on git
 import selenium
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -48,7 +48,6 @@ def check_snkrs_back():
         print(tag.get("href"))
         print(tag)
         #TODO: need to figure out how to goto the relative url like this
-        #TODO: not sure if this is in remote repo
 
 
 
