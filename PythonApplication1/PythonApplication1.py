@@ -10,7 +10,7 @@ from bs4 import BeautifulSoup
 
 import re
 
-chrome_driver = "C:\Programs\Python\Python36\Lib\site-packages\chromedriver_binary\chromedriver.exe"
+chrome_driver = "D:\Programs\Python\Python37\Lib\site-packages\chromedriver_binary\chromedriver.exe"
 snkrs_launch_page = "https://www.nike.com/launch/"
 
 def check_out():
